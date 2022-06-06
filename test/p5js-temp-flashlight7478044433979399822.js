@@ -1,7 +1,7 @@
 let img;
 
 function preload() {
-  img = loadImage('./data/room_main_resize.png');
+  img = loadImage('./data/6.png');
 }
 
 function setup() {
