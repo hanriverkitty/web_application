@@ -1,18 +1,29 @@
-let img;
+let texts = 50;
+let textx = 150;
+function main() {
+    image(img_main, 0, 0, 1280, 720);
+    // print(mouseX + " " + mouseY);
+    textSize(texts);
+    fill('#ffffff');
+    text("게임시작", textx, 400);
 
-function preload() {
-    img = loadImage('./data/main.png');
-    stage1 = loadImage('./data/stage1.png');
-    stage2 = loadImage('./data/stage2.png');
-    stage3 = loadImage('./data/stage3.png');
-    stage4 = loadImage('./data/stage4.png');
-    stage5 = loadImage('./data/stage5.png');
-    stage6 = loadImage('./data/stage6.png');
+
+    if (mouseX > 145 && mouseX < 355 && mouseY > 350 && mouseY < 405) {
+        if (textx > 120) {
+            texts = texts + 1;
+            textx = textx - 2;
+        }
+    } else {
+        if (textx < 145) {
+            texts = texts - 1;
+            textx = textx + 2;
+        }
+    }
+
+
 }
-
-function setup() {
-
-    let cnv = createCanvas(1280, 720);
-    cnv.parent('screen');
-    image(img, 0, 0, 1280, 720);
+function mouseClicked() {
+    if (mouseX > 145 && mouseX < 355 && mouseY > 350 && mouseY < 405) {
+        stage = 1;
+    }
 }
