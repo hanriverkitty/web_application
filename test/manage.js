@@ -1,5 +1,9 @@
 let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r;
-let stage = 1;
+let stage = 2;
+let emitter;
+let torch_texture;
+let useMouse = true;
+let left_g, left, right_g, right, left_w, right_w;
 
 let main_bgm, text_bgm;
 function preload() {
@@ -15,6 +19,13 @@ function preload() {
     check_img = loadImage('./data/Vector.png');
     check_img_b = loadImage('./data/Vector_b.png');
     check_img_r = loadImage('./data/Vector_r.png');
+    torch_texture = loadImage('./data/texture32.png');
+    left_g = loadImage('./data/left_g.png');
+    left = loadImage('./data/left.png');
+    right_g = loadImage('./data/right_g.png');
+    right = loadImage('./data/right.png');
+    left_w = loadImage('./data/left_w.png');
+    right_w = loadImage('./data/right_w.png');
 
 }
 
@@ -22,7 +33,8 @@ function setup() {
 
     let cnv = createCanvas(1280, 720);
     cnv.parent('screen');
-
+    emitter = new Emitter(width / 2, height * 5 / 6);
+    frameRate(30)
 
 }
 function draw() {
