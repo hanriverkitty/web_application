@@ -4,40 +4,8 @@ function stage6() {
     room_bgm.pause();
     clear();
     image(img_stage6, 0, 0, 1280, 720);
-    // loadPixels();
-    // //손전등 원크기
-    // let rad = 120;
-    // img_stage6.loadPixels();
-    // for (let y = 0; y < height; y++) {
-    //     for (let x = 0; x < width; x++) {
-    //         let pos = (x + y * width) * 4;
-    //         let r = img_stage6.pixels[pos];
-    //         let g = img_stage6.pixels[pos + 1];
-    //         let b = img_stage6.pixels[pos + 2];
-
-    //         let d = dist(x, y, mouseX, mouseY);
-
-    //         //rad 뒤의 값 조절해서 밝기조정
-    //         let adjustBrightness = map(d, 0, rad, 2, 0);
-    //         r *= adjustBrightness;
-    //         g *= adjustBrightness;
-    //         b *= adjustBrightness;
-
-
-    //         r = constrain(r, 0, 255);
-    //         g = constrain(g, 0, 255);
-    //         b = constrain(b, 0, 255);
-
-
-    //         pixels[pos] = r;
-    //         pixels[pos + 1] = g;
-    //         pixels[pos + 2] = b;
-    //         pixels[pos + 3] = 255;
-    //     }
-    // }
-    // updatePixels();
     blendMode(ADD);
-
+    //print(mouseX + "   " + mouseY);
     // let force = createVector(0, -0.1);
     // emitter.applyForce(force);
 
@@ -49,6 +17,28 @@ function stage6() {
     //   let move = motion();
     //   emitter.changePos(move.x,move.y)
     // }
+    if (mouseX < 1130 && mouseX > 1110 && mouseY < 230 && mouseY > 210) {
+        if (is_emitter1 == false) {
+            start = millis();
+            is_emitter1 = true;
+        }
+        current = millis();
+    }
+
+    if (current > 1000 + start && torch_on1 == true) {
+        print("fire")
+        emitter1.changePos(1120, 220);
+        emitter1.applyForce(wind);
+        emitter1.emit(1);
+        emitter1.show();
+        emitter1.update();
+        if (torch_on1 == true) {
+            start_torch1 = millis();
+        }
+        current_torch1 = millis();
+        torch_random = random()
+    }
+
 
 
     emitter.applyForce(wind);
@@ -56,11 +46,13 @@ function stage6() {
     emitter.emit(1);
     emitter.show();
     emitter.update();
+
+
     imageMode(CENTER);
     if (1280 - x > 0 && 720 - y > 0) {
         image(img_ghost, 640, 360, 80 + x, 40 + y);
-        x = x + 30 * 2;
-        y = y + 30;
+        x = x + 50 * 2;
+        y = y + 50;
         print(x + "  " + y)
     }
     else {
@@ -77,8 +69,7 @@ function stage6() {
             rect(0, 0, 1280, 720);
         }
     }
-
-    imageMode(CORNER)
+    imageMode(CORNER);
     if (final_bgm.isPlaying() == false) {
         final_bgm.loop();
     }
