@@ -17,12 +17,17 @@ function stage6() {
     //   let move = motion();
     //   emitter.changePos(move.x,move.y)
     // }
-    if (mouseX < 1130 && mouseX > 1110 && mouseY < 230 && mouseY > 210) {
+    ellipse(1120, 220, 60);
+    if (mouseX < 1180 && mouseX > 1060 && mouseY < 280 && mouseY > 160) {
+        print("mouse");
         if (is_emitter1 == false) {
             start = millis();
             is_emitter1 = true;
+            torch_on1 = true;
+
         }
         current = millis();
+
     }
 
     if (current > 1000 + start && torch_on1 == true) {
@@ -32,11 +37,17 @@ function stage6() {
         emitter1.emit(1);
         emitter1.show();
         emitter1.update();
-        if (torch_on1 == true) {
+        if (take_torch1_millis == true) {
             start_torch1 = millis();
+            torch_random = random(1000, 6000);
+            take_torch1_millis = false;
         }
         current_torch1 = millis();
-        torch_random = random()
+        if (current_torch1 > start_torch1 + torch_random) {
+            torch_on1 = false;
+            is_emitter1 = false;
+            take_torch1_millis = true;
+        }
     }
 
 
@@ -48,31 +59,31 @@ function stage6() {
     emitter.update();
 
 
-    imageMode(CENTER);
-    if (1280 - x > 0 && 720 - y > 0) {
-        image(img_ghost, 640, 360, 80 + x, 40 + y);
-        x = x + 50 * 2;
-        y = y + 50;
-        print(x + "  " + y)
-    }
-    else {
-        image(img_ghost, 640, 360, 80 + x, 40 + y);
-        colorMode(RGB);
+    // imageMode(CENTER);
+    // if (1280 - x > 0 && 720 - y > 0) {
+    //     image(img_ghost, 640, 360, 80 + x, 40 + y);
+    //     x = x + 50 * 2;
+    //     y = y + 50;
+    //     print(x + "  " + y)
+    // }
+    // else {
+    //     image(img_ghost, 640, 360, 80 + x, 40 + y);
+    //     colorMode(RGB);
 
-        if (blood < 255) {
-            fill(blood, 0, 0);
-            rect(0, 0, 1280, 720);
-            blood = blood + 10;
-        }
-        else {
-            color(255, 0, 0);
-            rect(0, 0, 1280, 720);
-        }
-    }
-    imageMode(CORNER);
-    if (final_bgm.isPlaying() == false) {
-        final_bgm.loop();
-    }
+    //     if (blood < 255) {
+    //         fill(blood, 0, 0);
+    //         rect(0, 0, 1280, 720);
+    //         blood = blood + 10;
+    //     }
+    //     else {
+    //         color(255, 0, 0);
+    //         rect(0, 0, 1280, 720);
+    //     }
+    // }
+    // imageMode(CORNER);
+    // if (final_bgm.isPlaying() == false) {
+    //     final_bgm.loop();
+    // }
 
 
 

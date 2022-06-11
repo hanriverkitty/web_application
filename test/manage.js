@@ -3,6 +3,7 @@ let stage = 6;
 let emitter, emitter1, emitter2, emitter3, emitter4, emitter5, emitter6;
 let is_emitter1 = false, is_emitter2 = false, is_emitter3 = false, is_emitter4 = false, is_emitter5 = false, is_emitter6 = false;
 let torch_on1 = true, torch_on2 = true, torch_on3 = true, torch_on4 = true, torch_on5 = true, torch_on6 = true;
+let take_torch1_millis = true, take_torch2_millis = true, take_torch3_millis = true, take_torch4_millis = true, take_torch5_millis = true, take_torch6_millis = true;
 let start_torch1, start_torch2, start_torch3, start_torch4, start_torch5, start_torch6;
 let current_torch1, current_torch2, current_torch3, current_torch4, current_torch5, current_torch6;
 let torch_random;
