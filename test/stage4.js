@@ -1,12 +1,21 @@
 function stage4() {
-    if (knock_ms > 8000) {
-        if (b_knock == false) {
-            room_bgm.setVolume(0.5);
+    if (b_knock == false) {
+        room_bgm.setVolume(0.5);
+        knock_bgm.setVolume(1);
+        if (knock_ms == false) {
+            start = millis();
+            knock_ms = true;
+        }
+
+        current = millis();
+        if (current > 5000 + start) {
             knock_bgm.play();
             b_knock = true;
         }
 
+
     }
+
     room_bgm.setVolume(1);
     image(img_stage4, 0, 0, 1280, 720);
     loadPixels();
@@ -47,4 +56,6 @@ function stage4() {
     } else if (mouseX > 1190 && mouseX < 1260) {
         image(right_g, mouseX - 55, mouseY - 24);
     }
+
+
 }

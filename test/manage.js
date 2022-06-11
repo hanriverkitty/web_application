@@ -1,5 +1,5 @@
-let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r;
-let stage = 0;
+let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r, img_ghost;
+let stage = 6;
 let emitter;
 let torch_texture;
 let useMouse = true;
@@ -8,7 +8,9 @@ let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm;
 let cursor_img;
 let glass = false;
 let door_playing = false, b_knock = false;
-let ms, knock_ms;
+let ms, knock_ms = false;
+let start, current;
+let x = 0, y = 0, blood = 0;
 
 function preload() {
     img_main = loadImage('./data/main.png');
@@ -28,13 +30,14 @@ function preload() {
     left = loadImage('./data/left.png');
     right_g = loadImage('./data/right_g.png');
     right = loadImage('./data/right.png');
-    left_w = loadImage('./data/left_w.png');
-    right_w = loadImage('./data/right_w.png');
+    // left_w = loadImage('./data/left_w.png');
+    // right_w = loadImage('./data/right_w.png');
     room_bgm = loadSound('./data/착신아리1.mp3');
     final_bgm = loadSound('./data/deadsilence.mp3');
     cursor_img = loadImage('./data/magnifying_glass1.png');
     door_bgm = loadSound('./data/dooropen.mp3');
     knock_bgm = loadSound('./data/knock.mp3');
+    img_ghost = loadImage('./data/ghost.png')
 
 }
 
@@ -60,7 +63,7 @@ function draw() {
         stage3();
     } else if (stage == 4) {
         stage4();
-        knock_ms = millis();
+
     } else if (stage == 5) {
         stage5();
     } else if (stage == 6) {

@@ -1,5 +1,6 @@
 function stage5() {
     image(img_stage5, 0, 0, 1280, 720);
+
     loadPixels();
     //손전등 원크기
     let rad = 150;

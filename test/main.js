@@ -31,7 +31,7 @@ function mouseClicked() {
             stage = 1;
         }
     } else if (stage == 1) {
-        if (mouseX > 930 && mouseX < 1010 && mouseY > 480 && mouseY < 550) {
+        if (mouseX > 930 && mouseX < 1010 && mouseY > 480 && mouseY < 550 && num == sentence.length) {
             stage = 2;
         }
     }

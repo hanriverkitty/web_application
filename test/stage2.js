@@ -1,16 +1,18 @@
 function stage2() {
+    noCursor();
     background(0);
     if (door_playing == false) {
+        start = millis();
         door_bgm.play();
         door_playing = true;
     }
-    if (ms > 10000) {
-        glass = true;
-        noCursor();
+    current = millis();
+    if (current > start + 2000) {
+        glass = true
         image(img_stage2, 0, 0, 1280, 720);
         loadPixels();
         //손전등 원크기
-        let rad = 150;
+        let rad = 200;
         img_stage2.loadPixels();
         for (let y = 0; y < height; y++) {
             for (let x = 0; x < width; x++) {
