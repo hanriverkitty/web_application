@@ -36,9 +36,36 @@ function mouseClicked() {
         }
     }
 
-    else if (stage == 2) {
+    if (stage == 2) {
         main_bgm.pause();
+        if (mouseX > 1190 && mouseX < 1260) {
+            stage = 3;
+        }
+    } else if (stage == 3) {
+        if (mouseX > 20 && mouseX < 90) {
+            stage = 2;
+        } else if (mouseX > 1190 && mouseX < 1260) {
+            stage = 4;
+        }
     }
+    else if (stage == 4) {
+        if (mouseX > 20 && mouseX < 90) {
+            stage = 3;
+        } else if (mouseX > 1190 && mouseX < 1260) {
+            stage = 5;
+        }
+    } else if (stage == 5) {
+        if (mouseX > 20 && mouseX < 90) {
+            stage = 4;
+        } else if (mouseX > 1190 && mouseX < 1260) {
+            stage = 6;
+        }
+    } else if (stage == 6) {
+        if (mouseX > 20 && mouseX < 90) {
+            stage = 5;
+        }
+    }
+
 
 
 }
