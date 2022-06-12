@@ -14,9 +14,9 @@ class Emitter {
     this.particles = [];
   }
 
-  emit(num) {
+  emit(num, size2) {
     for (let i = 0; i < num; i++) {
-      this.particles.push(new Particle(this.position.x, this.position.y));
+      this.particles.push(new Particle(this.position.x, this.position.y, size2));
     }
   }
 
@@ -25,16 +25,16 @@ class Emitter {
       particle.applyForce(force);
     }
   }
-  
-  changePos(x,y){
+
+  changePos(x, y) {
     this.position.x = x
     this.position.y = y
   }
-  
-  update() {
-    
 
-    
+  update() {
+
+
+
     for (let particle of this.particles) {
       particle.update();
     }

@@ -9,12 +9,12 @@
 // Shader (WEBGL): https://editor.p5js.org/codingtrain/sketches/EXZmcc4m_
 
 class Particle {
-  constructor(x, y) {
+  constructor(x, y, size1) {
     this.pos = createVector(x, y);
     this.vel = p5.Vector.random2D();
     this.vel.mult(random(0.5, 2));
     this.acc = createVector(0, 0);
-    this.size = 48;
+    this.size = size1;
     this.lifetime = 255;
   }
 
@@ -56,7 +56,7 @@ class Particle {
 
   show() {
     this.setColor();
-    image(torch_texture, this.pos.x - 24, this.pos.y - 24, this.getSize() / 2, this.getSize() / 2);
+    image(torch_texture, this.pos.x - this.size / 2, this.pos.y - this.size / 2, this.getSize() / 2, this.getSize() / 2);
     // ellipse(this.pos.x, this.pos.y, this.r * 2);
   }
 }
