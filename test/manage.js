@@ -29,7 +29,7 @@ function preload() {
     img_stage3 = loadImage('./data/stage3.png');
     img_stage4 = loadImage('./data/stage4.png');
     img_stage5 = loadImage('./data/stage5.png');
-    img_stage6 = loadImage('./data/stage6()1.png');
+    img_stage6 = loadImage('./data/stage6.png');
     main_bgm = loadSound('./data/true.mp3');
     text_bgm = loadSound('./data/digital_typ_cut.mp3');
     check_img = loadImage('./data/Vector.png');
