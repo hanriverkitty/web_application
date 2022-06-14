@@ -1,7 +1,6 @@
 function stage4() {
     if (b_knock == false) {
         room_bgm.setVolume(0.5);
-        knock_bgm.setVolume(1);
         if (knock_ms == false) {
             start = millis();
             knock_ms = true;
@@ -9,6 +8,7 @@ function stage4() {
 
         current = millis();
         if (current > 5000 + start) {
+            knock_bgm.setVolume(1);
             knock_bgm.play();
             b_knock = true;
         }
@@ -51,10 +51,34 @@ function stage4() {
     }
 
     updatePixels();
+
     if (mouseX > 20 && mouseX < 90) {
         image(left_g, mouseX - 55, mouseY - 24);
     } else if (mouseX > 1190 && mouseX < 1260) {
         image(right_g, mouseX - 55, mouseY - 24);
+    }
+    //painting
+    else if (mouseX > 635 && mouseX < 750 && mouseY > 120 && mouseY < 245) {
+        glass = true;
+    }
+    //drawer
+    else if (mouseX > 935 && mouseX < 1140 && mouseY > 230 && mouseY < 560) {
+        glass = true;
+    }
+    //cabinet
+    else if (mouseX > 100 && mouseX < 250 && mouseY > 190 && mouseY < 675) {
+        glass = true;
+    }
+    //doll
+    else if (mouseX > 600 && mouseX < 850 && mouseY > 620 && mouseY < 685) {
+        glass = true;
+    }
+    //knife
+    else if (mouseX > 380 && mouseX < 540 && mouseY > 610 && mouseY < 650) {
+        glass = true;
+    }
+    else {
+        glass = false;
     }
 
 

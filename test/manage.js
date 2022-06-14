@@ -1,5 +1,5 @@
-let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r, img_ghost;
-let stage = 6;
+let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r, img_ghost, img_ghost_side, img_family;
+let stage = 0;
 let emitter, emitter1, emitter2, emitter3, emitter4, emitter5, emitter6;
 let is_emitter1 = false, is_emitter2 = false, is_emitter3 = false, is_emitter4 = false, is_emitter5 = false, is_emitter6 = false;
 let torch_on1 = true, torch_on2 = true, torch_on3 = true, torch_on4 = true, torch_on5 = true, torch_on6 = true;
@@ -13,11 +13,11 @@ let torch1_random, torch2_random, torch3_random, torch4_random, torch5_random, t
 let torch_texture, random_num = [9000, 10000, 11000, 12000, 13000];
 let useMouse = true;
 let left_g, left, right_g, right, left_w, right_w;
-let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm;
+let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm, rosie_bgm, scream_sound_b, locked_sound;
 let img_stage6_1, img_stage6_2, img_stage6_3, img_stage6_4, img_stage6_5, img_stage6_6;
 let cursor_img;
 let glass = false;
-let door_playing = false, b_knock = false;
+let door_playing = false, b_knock = false, rosie_playing = false, scream = false;
 let ms, knock_ms = false;
 let start, current;
 let x = 0, y = 0, blood = 0, opacity = 0;
@@ -54,7 +54,11 @@ function preload() {
     img_stage6_4 = loadImage('./data/stage6-4.png');
     img_stage6_5 = loadImage('./data/stage6-5.png');
     img_stage6_6 = loadImage('./data/stage6-6.png');
-
+    rosie_bgm = loadSound('./data/rosie.mp3');
+    scream_sound_b = loadSound('./data/scream.mp3');
+    img_ghost_side = loadImage('./data/ghost_side.png');
+    img_family = loadImage('./data/family_pic.png');
+    locked_sound = loadSound('./data/locked.mp3');
 }
 
 function setup() {
@@ -71,9 +75,9 @@ function setup() {
     //emitter6 = new Emitter(width / 2, height * 5 / 6);
     pixelDensity(1);
 
+
 }
 function draw() {
-
     if (stage == 0) {
         main();
     } else if (stage == 1) {
@@ -94,7 +98,7 @@ function draw() {
         ghost();
     }
     if (glass == true) {
-        image(cursor_img, mouseX, mouseY, 40, 40);
+        image(cursor_img, mouseX - 20, mouseY - 20, 40, 40);
     }
 
 }

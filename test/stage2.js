@@ -1,5 +1,6 @@
 function stage2() {
-    noCursor();
+    frameRate(60);
+    //noCursor();
     background(0);
     if (door_playing == false) {
         start = millis();
@@ -8,7 +9,17 @@ function stage2() {
     }
     current = millis();
     if (current > start + 2000) {
-        glass = true
+        if (rosie_playing == false) {
+            rosie_bgm.play();
+            room_bgm.setVolume(0.3);
+            room_bgm.loop();
+            rosie_playing = true;
+        }
+        if (rosie_bgm.isPlaying() == false) {
+            room_bgm.setVolume(1);
+        }
+
+
         image(img_stage2, 0, 0, 1280, 720);
         loadPixels();
         //손전등 원크기
@@ -43,14 +54,24 @@ function stage2() {
         }
 
         updatePixels();
-        if (room_bgm.isPlaying() == false) {
-            room_bgm.loop();
-        }
+
+
 
         if (mouseX > 1190 && mouseX < 1260) {
             image(right_g, mouseX - 55, mouseY - 24);
         }
-        image(cursor_img, mouseX, mouseY, 40, 40);
+
+        //deer head
+        if (mouseX > 250 && mouseX < 340 && mouseY > 100 && mouseY < 250) {
+            glass = true;
+        }
+        //table
+        else if (mouseX > 310 && mouseX < 555 && mouseY > 425 && mouseY < 495) {
+            glass = true;
+        } else {
+            glass = false;
+        }
+
     }
 }
 

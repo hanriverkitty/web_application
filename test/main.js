@@ -57,8 +57,8 @@ function mouseClicked() {
     } else if (stage == 5) {
         if (mouseX > 20 && mouseX < 90) {
             stage = 4;
-        } else if (mouseX > 1190 && mouseX < 1260) {
-            stage = 6;
+        } else if (mouseX > 1000 && mouseX < 1220 && mouseY > 130 && mouseY < 580 && locked_sound.isPlaying() == false) {
+            locked_sound.play();
         }
     } else if (stage == 6) {
         if (mouseX > 20 && mouseX < 90) {

@@ -1,6 +1,5 @@
 function stage5() {
     image(img_stage5, 0, 0, 1280, 720);
-
     loadPixels();
     //손전등 원크기
     let rad = 150;
@@ -34,9 +33,27 @@ function stage5() {
     }
 
     updatePixels();
+    print(mouseX + "   " + mouseY);
     if (mouseX > 20 && mouseX < 90) {
         image(left_g, mouseX - 55, mouseY - 24);
-    } else if (mouseX > 1190 && mouseX < 1260) {
-        image(right_g, mouseX - 55, mouseY - 24);
+    }
+    //door
+    else if (mouseX > 1000 && mouseX < 1220 && mouseY > 130 && mouseY < 580) {
+        glass = true;
+    }
+    //wheelchair
+    else if (mouseX > 180 && mouseX < 410 && mouseY > 340 && mouseY < 670) {
+        glass = true;
+    }
+    //frame
+    else if (mouseX > 530 && mouseX < 655 && mouseY > 50 && mouseY < 210) {
+        glass = true;
+    }
+    //table
+    else if (mouseX > 510 && mouseX < 890 && mouseY > 415 && mouseY < 485) {
+        glass = true;
+    }
+    else {
+        glass = false
     }
 }

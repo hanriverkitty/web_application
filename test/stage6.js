@@ -1,4 +1,5 @@
 function stage6() {
+    frameRate(20);
     glass = false;
     noCursor();
     room_bgm.pause();
@@ -291,9 +292,9 @@ function stage6() {
     //     }
     // }
     // imageMode(CORNER);
-    // if (final_bgm.isPlaying() == false) {
-    //     final_bgm.loop();
-    // }
+    if (final_bgm.isPlaying() == false) {
+        final_bgm.loop();
+    }
 
 
 
