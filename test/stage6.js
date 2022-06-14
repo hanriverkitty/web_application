@@ -303,4 +303,3 @@ function stage6() {
 function motion() {
     return createVector(sin(frameCount / 40) * width / 6 + width / 2, height * 6 / 7)
 }
-a
