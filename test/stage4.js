@@ -1,4 +1,5 @@
 function stage4() {
+    noCursor();
     if (b_knock == false) {
         room_bgm.setVolume(0.5);
         if (knock_ms == false) {

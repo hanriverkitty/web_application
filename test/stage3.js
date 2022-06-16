@@ -1,6 +1,6 @@
 let ghost_x = 0;
 function stage3() {
-
+    noCursor();
     image(img_stage3, 0, 0, 1280, 720);
     loadPixels();
     //손전등 원크기
@@ -53,7 +53,7 @@ function stage3() {
         glass = true;
     }
     else {
-        glass = false
+        glass = false;
     }
 
 }

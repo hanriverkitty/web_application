@@ -1,5 +1,5 @@
 let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r, img_ghost, img_family;
-let stage = 2;
+let stage = 15;
 let emitter, emitter1, emitter2, emitter3, emitter4, emitter5, emitter6;
 let is_emitter1 = false, is_emitter2 = false, is_emitter3 = false, is_emitter4 = false, is_emitter5 = false, is_emitter6 = false;
 let torch_on1 = true, torch_on2 = true, torch_on3 = true, torch_on4 = true, torch_on5 = true, torch_on6 = true;
@@ -13,9 +13,9 @@ let torch1_random, torch2_random, torch3_random, torch4_random, torch5_random, t
 let torch_texture, random_num = [9000, 10000, 11000, 12000, 13000];
 let useMouse = true;
 let left_g, left, right_g, right, left_w, right_w;
-let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm, rosie_bgm, scream_sound_b, locked_sound, scroll_bgm;
+let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm, rosie_bgm, scream_sound_b, locked_sound, scroll_bgm, waterfill, waterdrink;
 let img_stage6_1, img_stage6_2, img_stage6_3, img_stage6_4, img_stage6_5, img_stage6_6;
-let deerhead_c, deerhead_c1, table;
+let deerhead_c, deerhead_c1, table, mirror_img, bath_img, bathwater_img, water, sink_img;
 let cursor_img;
 let glass = false;
 let door_playing = false, b_knock = false, rosie_playing = false, scream = false, stage1_door = false, b_scroll_bgm = false;
@@ -63,7 +63,13 @@ function preload() {
     deerhead_c1 = loadImage('./data/deer_head_c(1).png');
     scroll_bgm = loadSound('./data/horror.mp3');
     table = loadImage('./data/table.png');
-
+    mirror_img = loadImage('./data/mirror.png');
+    bath_img = loadImage('./data/bath.png');
+    bathwater_img = loadImage('./data/bath(1).png');
+    water = loadImage('./data/water.png');
+    waterfill = loadSound('./data/waterfill.mp3');
+    waterdrink = loadSound('./data/waterdrink.mp3');
+    sink_img = loadImage('./data/sink.png');
 }
 
 function setup() {
@@ -107,6 +113,17 @@ function draw() {
         scroll();
     } else if (stage == 13) {
         table_view();
+    }
+    else if (stage == 14) {
+        mirror();
+    }
+    else if (stage == 15) {
+        bath();
+    } else if (stage == 16) {
+        bathwater();
+    }
+    else if (stage == 17) {
+        sink();
     }
     if (glass == true) {
         image(cursor_img, mouseX - 20, mouseY - 20, 40, 40);
