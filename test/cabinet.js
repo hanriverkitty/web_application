@@ -1,7 +1,6 @@
 let kk;
 function cabinet() {
     glass = false;
-    print(mouseX + "  " + mouseY);
     image(cabinet_img, 0, 0);
     image(key_img, 0, 0);
     image(check_img, 1160, 600);

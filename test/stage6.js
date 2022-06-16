@@ -22,7 +22,6 @@ function stage6() {
         image(img_stage6_6, 0, 0, 1280, 720);
     }
     blendMode(ADD);
-    //print(mouseX + "   " + mouseY);
     // let force = createVector(0, -0.1);
     // emitter.applyForce(force);
 
@@ -42,7 +41,6 @@ function stage6() {
 
     //torch1
     if (mouseX < 1180 && mouseX > 1060 && mouseY < 280 && mouseY > 160) {
-        //print("mouse");
         if (is_emitter1 == false) {
             start_torch1 = millis();
             is_emitter1 = true;
@@ -54,7 +52,7 @@ function stage6() {
     }
 
     if (current_torch1 > 1000 + start_torch1 && torch_on1 == true) {
-        //print("fire")
+
 
         emitter1.changePos(1120, 220);
         emitter1.applyForce(wind);
@@ -64,7 +62,6 @@ function stage6() {
         if (take_torch1_millis == true) {
             start_Ontorch1 = millis();
             torch1_random = random(random_num);
-            print(torch1_random);
             take_torch1_millis = false;
             torch_count++;
         }
@@ -77,7 +74,6 @@ function stage6() {
         }
     }
 
-    //print(mouseX + "  " + mouseY);
     //torch2
     if (mouseX < 985 && mouseX > 895 && mouseY < 345 && mouseY > 255) {
 
@@ -92,7 +88,6 @@ function stage6() {
     }
 
     if (current_torch2 > 1000 + start_torch2 && torch_on2 == true) {
-        // print("fire")
 
         emitter2.changePos(940, 300);
         emitter2.applyForce(wind);
@@ -102,7 +97,6 @@ function stage6() {
         if (take_torch2_millis == true) {
             start_Ontorch2 = millis();
             torch2_random = random(random_num);
-            print(torch2_random);
             take_torch2_millis = false;
             torch_count++;
         }
@@ -129,7 +123,6 @@ function stage6() {
     }
 
     if (current_torch3 > 1000 + start_torch3 && torch_on3 == true) {
-        //print("fire")
 
         emitter3.changePos(770, 350);
         emitter3.applyForce(wind);
@@ -139,7 +132,6 @@ function stage6() {
         if (take_torch3_millis == true) {
             start_Ontorch3 = millis();
             torch3_random = random(random_num);
-            print(torch3_random);
             take_torch3_millis = false;
             torch_count++;
         }
@@ -165,7 +157,6 @@ function stage6() {
     }
 
     if (current_torch4 > 1000 + start_torch4 && torch_on4 == true) {
-        //print("fire")
 
         emitter4.changePos(510, 350);
         emitter4.applyForce(wind);
@@ -175,7 +166,6 @@ function stage6() {
         if (take_torch4_millis == true) {
             start_Ontorch4 = millis();
             torch4_random = random(random_num);
-            print(torch4_random);
             take_torch4_millis = false;
             torch_count++;
         }
@@ -201,7 +191,6 @@ function stage6() {
     }
 
     if (current_torch5 > 1000 + start_torch5 && torch_on5 == true) {
-        //print("fire")
 
         emitter5.changePos(335, 300);
         emitter5.applyForce(wind);
@@ -211,7 +200,6 @@ function stage6() {
         if (take_torch5_millis == true) {
             start_Ontorch5 = millis();
             torch5_random = random(random_num);
-            print(torch5_random);
             take_torch5_millis = false;
             torch_count++;
         }
@@ -225,7 +213,6 @@ function stage6() {
     }
     //torch6
     if (mouseX < 210 && mouseX > 90 && mouseY < 280 && mouseY > 160) {
-        //print("mouse");
         if (is_emitter6 == false) {
             start_torch6 = millis();
             is_emitter6 = true;
@@ -246,7 +233,6 @@ function stage6() {
         if (take_torch6_millis == true) {
             start_Ontorch6 = millis();
             torch6_random = random(random_num);
-            print(torch6_random);
             take_torch6_millis = false;
             torch_count++;
         }
@@ -256,6 +242,12 @@ function stage6() {
             is_emitter6 = false;
             take_torch6_millis = true;
             torch_count--;
+        }
+    }
+
+    if (torch_on1 == true && torch_on2 == true && torch_on3 == true && torch_on4 == true && torch_on5 == true && torch_on6 == true) {
+        if (current_Ontorch6 < start_Ontorch6 + torch6_random - 1000 && current_Ontorch5 < start_Ontorch5 + torch5_random - 1000 && current_Ontorch4 < start_Ontorch4 + torch4_random - 1000 && current_Ontorch3 < start_Ontorch3 + torch3_random - 1000 && current_Ontorch2 < start_Ontorch2 + torch2_random - 1000 && current_Ontorch1 < start_Ontorch1 + torch1_random - 1000) {
+            stage = 8;
         }
     }
     //ellipse(1120, 220, 60);
@@ -275,7 +267,6 @@ function stage6() {
     //     image(img_ghost, 640, 360, 80 + x, 40 + y);
     //     x = x + 50 * 2;
     //     y = y + 50;
-    //     print(x + "  " + y)
     // }
     // else {
     //     image(img_ghost, 640, 360, 80 + x, 40 + y);

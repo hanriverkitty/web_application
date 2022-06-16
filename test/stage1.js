@@ -1,4 +1,4 @@
-let sentence = "A rose is a rose is a rose\nA rose is a rose is a rose\nA rose is a rose is a rose\nA rose is a rose is a rose";
+let sentence = "얼마전 뉴스에 폐가에 들어갔다가 실종된\n사람에 대한 이야기가 나왔다. 평소에\n귀신은 존재하지 않고, 흉가체험을 좋아했던\n나는 가지 않을 수가 없었다. 그래서 나는\n서둘러 흉가를 향해 발걸음을 옮겼다.";
 let num = 0;
 
 function stage1() {
@@ -9,11 +9,11 @@ function stage1() {
     image(img_stage1, 0, 0, 1280, 720);
     noStroke();
     fill(219, 219, 219, 105);
-    print(mouseX + " " + mouseY);
     rect(240, 180, 800, 400, 10);
     frameRate(20);
     fill(255);
-    textSize(40);
+    textFont(scrollfont);
+    textSize(45);
     text(sentence.substring(0, num), 260, 240);
     if (num < sentence.length) {
         num++;

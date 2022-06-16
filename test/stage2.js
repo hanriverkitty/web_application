@@ -7,16 +7,16 @@ function stage2() {
     background(0);
     if (door_playing == false && stage1_door == false) {
         start = millis();
-        //door_bgm.play();
+        door_bgm.play();
         door_playing = true;
         stage1_door == true;
     }
     current = millis();
     if (current > start + 2000) {
         if (rosie_playing == false) {
-            //rosie_bgm.play();
+            rosie_bgm.play();
             room_bgm.setVolume(0.3);
-            //room_bgm.loop();
+            room_bgm.loop();
             rosie_playing = true;
         }
         if (rosie_bgm.isPlaying() == false) {

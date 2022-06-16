@@ -42,7 +42,6 @@ function stage5() {
     }
 
     updatePixels();
-    print(mouseX + "   " + mouseY);
     if (mouseX > 20 && mouseX < 90) {
         image(left_g, mouseX - 55, mouseY - 24);
     }

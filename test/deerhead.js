@@ -3,7 +3,6 @@ function deerhead() {
     image(deerhead_c, 0, 0, 1280, 720);
     glass = false;
     loadPixels();
-    print(mouseX + " " + mouseY);
     //손전등 원크기
     let rad = 300;
     deerhead_c.loadPixels();

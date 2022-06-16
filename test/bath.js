@@ -3,7 +3,6 @@ function bath() {
     image(bath_img, 0, 0);
     glass = false;
     loadPixels();
-    print(mouseX + " " + mouseY);
     //손전등 원크기
     let rad = 300;
     bath_img.loadPixels();

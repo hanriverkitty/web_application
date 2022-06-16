@@ -1,13 +1,14 @@
 let texts = 50;
 let textx = 150;
+let t_color = 255;
 function main() {
     if (main_bgm.isPlaying() == false) {
         main_bgm.play();
     }
     image(img_main, 0, 0, 1280, 720);
-    // print(mouseX + " " + mouseY);
     textSize(texts);
     fill('#ffffff');
+    fill(255, t_color, t_color);
     text("게임시작", textx, 400);
 
 
@@ -15,13 +16,18 @@ function main() {
         if (textx > 120) {
             texts = texts + 1;
             textx = textx - 2;
+            t_color = t_color - 30;
+
         }
     } else {
         if (textx < 145) {
             texts = texts - 1;
             textx = textx + 2;
+            t_color = t_color + 30;
+
         }
     }
+
 
 
 }
@@ -162,6 +168,5 @@ function keyPressed() {
 
     } else if (stage == 20 && keyCode == LEFT_ARROW && takekey == true) {
         drawer_x = drawer_x + 12;
-        print(drawer_x);
     }
 }

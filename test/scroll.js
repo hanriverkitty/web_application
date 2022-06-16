@@ -9,7 +9,8 @@ function scroll() {
     fill(219, 219, 219, 105);
     rect(240, 60, 800, 600, 15);
     fill(255);
-    textSize(20);
+    textFont(scrollfont);
+    textSize(30);
     textLeading(32);
     text(sentence1.substring(0, num1), 260, 100);
     if (text_bgm.isPlaying() == false) {

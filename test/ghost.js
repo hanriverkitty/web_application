@@ -12,7 +12,6 @@ function ghost() {
         image(img_ghost, 640, 360, 80 + x, 40 + y);
         x = x + 50 * 2;
         y = y + 50;
-        print(x + "  " + y)
     }
     else {
         image(img_ghost, 640, 360, 80 + x, 40 + y);

@@ -1,5 +1,5 @@
 let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r, img_ghost, img_family;
-let stage = 0;
+let stage = 8;
 let emitter, emitter1, emitter2, emitter3, emitter4, emitter5, emitter6;
 let is_emitter1 = false, is_emitter2 = false, is_emitter3 = false, is_emitter4 = false, is_emitter5 = false, is_emitter6 = false;
 let torch_on1 = true, torch_on2 = true, torch_on3 = true, torch_on4 = true, torch_on5 = true, torch_on6 = true;
@@ -22,6 +22,7 @@ let door_playing = false, b_knock = false, rosie_playing = false, scream = false
 let ms, knock_ms = false;
 let start, current;
 let x = 0, y = 0, blood = 0, opacity = 0, drawer_x = 0;
+let scrollfont, mainfont;
 
 function preload() {
     img_main = loadImage('./data/main.png');
@@ -76,6 +77,8 @@ function preload() {
     eye_b_img = loadImage('./data/eye(b).png');
     door_img = loadImage('./data/door.png');
     drawer_img = loadImage('./data/drawer.png');
+    scrollfont = loadFont('./data/scrollfont.ttf');
+    mainfont = loadFont('./data/mainfont.ttf');
 }
 
 function setup() {
@@ -113,7 +116,11 @@ function draw() {
         stage6();
     } else if (stage == 7) {
         ghost();
-    } else if (stage == 11) {
+    }
+    else if (stage == 8) {
+        stage8();
+    }
+    else if (stage == 11) {
         deerhead();
     } else if (stage == 12) {
         scroll();

@@ -1,6 +1,5 @@
 
 function drawer() {
-    print(mouseX + " " + mouseY);
     image(door_img, 0, 0);
     imageMode(CENTER);
     image(drawer_img, 640 - drawer_x, 385);
