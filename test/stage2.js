@@ -1,6 +1,9 @@
 function stage2() {
+    if (scroll_bgm.isPlaying() == true) {
+        scroll_bgm.pause();
+    }
     frameRate(60);
-    //noCursor();
+    noCursor();
     background(0);
     if (door_playing == false && stage1_door == false) {
         start = millis();

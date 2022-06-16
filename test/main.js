@@ -40,8 +40,14 @@ function mouseClicked() {
         main_bgm.pause();
         if (mouseX > 1190 && mouseX < 1260) {
             stage = 3;
-        } else if (mouseX > 250 && mouseX < 340 && mouseY > 100 && mouseY < 250) {
+        }
+        //deer.js
+        else if (mouseX > 250 && mouseX < 340 && mouseY > 100 && mouseY < 250) {
             stage = 11;
+        }
+        //table.js 
+        else if (mouseX > 310 && mouseX < 555 && mouseY > 425 && mouseY < 495) {
+            stage = 13;
         }
     } else if (stage == 3) {
         if (mouseX > 20 && mouseX < 90) {
@@ -73,6 +79,10 @@ function mouseClicked() {
 
     } else if (stage == 12) {
         if (mouseX > 930 && mouseX < 1010 && mouseY > 560 && mouseY < 630 && num == sentence.length) {
+            stage = 2;
+        }
+    } else if (stage == 13) {
+        if (mouseX > 1160 && mouseX < 1240 && mouseY > 600 && mouseY < 680) {
             stage = 2;
         }
     }

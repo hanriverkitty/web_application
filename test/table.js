@@ -1,18 +1,18 @@
-function deerhead() {
+function table_view() {
     cursor();
-    image(deerhead_c, 0, 0, 1280, 720);
+    image(table, 0, 0, 1280, 720);
     glass = false;
     loadPixels();
     print(mouseX + " " + mouseY);
     //손전등 원크기
-    let rad = 300;
-    deerhead_c.loadPixels();
+    let rad = 500;
+    table.loadPixels();
     for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
             let pos = (x + y * width) * 4;
-            let r = deerhead_c.pixels[pos];
-            let g = deerhead_c.pixels[pos + 1];
-            let b = deerhead_c.pixels[pos + 2];
+            let r = table.pixels[pos];
+            let g = table.pixels[pos + 1];
+            let b = table.pixels[pos + 2];
 
             let d = dist(x, y, 640, 360);
 
@@ -37,9 +37,11 @@ function deerhead() {
 
     updatePixels();
 
-    //scroll
-    if (mouseX > 490 && mouseX < 790 && mouseY > 270 && mouseY < 320) {
-        noCursor();
-        glass = true;
+    image(check_img, 1160, 600);
+    if (mouseX > 1160 && mouseX < 1240 && mouseY > 600 && mouseY < 680) {
+        cursor('grab');
+        image(check_img_r, 1160, 600);
+    } else {
+        cursor();
     }
 }
