@@ -1,4 +1,4 @@
-let texts = 50;
+let texts = 60;
 let textx = 150;
 let t_color = 255;
 function main() {
@@ -6,13 +6,17 @@ function main() {
         main_bgm.play();
     }
     image(img_main, 0, 0, 1280, 720);
-    textSize(texts);
+    textFont(scrollfont);
+    textSize(100);
     fill('#ffffff');
+    text("Escape Room", 100, 150);
+    textSize(texts);
     fill(255, t_color, t_color);
-    text("게임시작", textx, 400);
+    text("게임시작", textx, 350);
 
 
-    if (mouseX > 145 && mouseX < 355 && mouseY > 350 && mouseY < 405) {
+
+    if (mouseX > 145 && mouseX < 355 && mouseY > 300 && mouseY < 355) {
         if (textx > 120) {
             texts = texts + 1;
             textx = textx - 2;
@@ -33,7 +37,7 @@ function main() {
 }
 function mouseClicked() {
     if (stage == 0) {
-        if (mouseX > 145 && mouseX < 355 && mouseY > 350 && mouseY < 405) {
+        if (mouseX > 145 && mouseX < 355 && mouseY > 300 && mouseY < 355) {
             stage = 1;
         }
     } else if (stage == 1) {
