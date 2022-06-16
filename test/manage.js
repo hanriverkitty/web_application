@@ -1,5 +1,5 @@
-let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r, img_ghost, img_ghost_side, img_family;
-let stage = 0;
+let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r, img_ghost, img_family;
+let stage = 11;
 let emitter, emitter1, emitter2, emitter3, emitter4, emitter5, emitter6;
 let is_emitter1 = false, is_emitter2 = false, is_emitter3 = false, is_emitter4 = false, is_emitter5 = false, is_emitter6 = false;
 let torch_on1 = true, torch_on2 = true, torch_on3 = true, torch_on4 = true, torch_on5 = true, torch_on6 = true;
@@ -15,9 +15,10 @@ let useMouse = true;
 let left_g, left, right_g, right, left_w, right_w;
 let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm, rosie_bgm, scream_sound_b, locked_sound;
 let img_stage6_1, img_stage6_2, img_stage6_3, img_stage6_4, img_stage6_5, img_stage6_6;
+let deerhead_c, deerhead_c1;
 let cursor_img;
 let glass = false;
-let door_playing = false, b_knock = false, rosie_playing = false, scream = false;
+let door_playing = false, b_knock = false, rosie_playing = false, scream = false, stage1_door = false;
 let ms, knock_ms = false;
 let start, current;
 let x = 0, y = 0, blood = 0, opacity = 0;
@@ -56,9 +57,10 @@ function preload() {
     img_stage6_6 = loadImage('./data/stage6-6.png');
     rosie_bgm = loadSound('./data/rosie.mp3');
     scream_sound_b = loadSound('./data/scream.mp3');
-    img_ghost_side = loadImage('./data/ghost_side.png');
     img_family = loadImage('./data/family_pic.png');
     locked_sound = loadSound('./data/locked.mp3');
+    deerhead_c = loadImage('./data/deer_head_c.png');
+    deerhead_c1 = loadImage('./data/deer_head_c(1).png');
 }
 
 function setup() {
@@ -96,6 +98,10 @@ function draw() {
         stage6();
     } else if (stage == 7) {
         ghost();
+    } else if (stage == 11) {
+        deerhead();
+    } else if (stage == 12) {
+        scroll();
     }
     if (glass == true) {
         image(cursor_img, mouseX - 20, mouseY - 20, 40, 40);

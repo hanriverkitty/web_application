@@ -40,6 +40,8 @@ function mouseClicked() {
         main_bgm.pause();
         if (mouseX > 1190 && mouseX < 1260) {
             stage = 3;
+        } else if (mouseX > 250 && mouseX < 340 && mouseY > 100 && mouseY < 250) {
+            stage = 11;
         }
     } else if (stage == 3) {
         if (mouseX > 20 && mouseX < 90) {
@@ -63,6 +65,15 @@ function mouseClicked() {
     } else if (stage == 6) {
         if (mouseX > 20 && mouseX < 90) {
             stage = 5;
+        }
+    } else if (stage == 11) {
+        if (mouseX > 490 && mouseX < 790 && mouseY > 270 && mouseY < 320) {
+            stage = 12;
+        }
+
+    } else if (stage == 12) {
+        if (mouseX > 930 && mouseX < 1010 && mouseY > 560 && mouseY < 630 && num == sentence.length) {
+            stage = 2;
         }
     }
 

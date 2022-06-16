@@ -19,7 +19,7 @@ function stage1() {
         num++;
     }
     if (num == sentence.length) {
-        text_bgm.pause();
+        text_bgm.stop();
         image(check_img, 940, 480);
         if (mouseX > 930 && mouseX < 1010 && mouseY > 480 && mouseY < 550) {
             image(check_img_r, 940, 480);
