@@ -1,5 +1,5 @@
 let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r, img_ghost, img_family;
-let stage = 15;
+let stage = 0;
 let emitter, emitter1, emitter2, emitter3, emitter4, emitter5, emitter6;
 let is_emitter1 = false, is_emitter2 = false, is_emitter3 = false, is_emitter4 = false, is_emitter5 = false, is_emitter6 = false;
 let torch_on1 = true, torch_on2 = true, torch_on3 = true, torch_on4 = true, torch_on5 = true, torch_on6 = true;
@@ -15,13 +15,13 @@ let useMouse = true;
 let left_g, left, right_g, right, left_w, right_w;
 let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm, rosie_bgm, scream_sound_b, locked_sound, scroll_bgm, waterfill, waterdrink;
 let img_stage6_1, img_stage6_2, img_stage6_3, img_stage6_4, img_stage6_5, img_stage6_6;
-let deerhead_c, deerhead_c1, table, mirror_img, bath_img, bathwater_img, water, sink_img;
+let deerhead_c, deerhead_c1, table, mirror_img, bath_img, bathwater_img, water, sink_img, cabinet_img, key_img, eye_img, eye_b_img, door_img, drawer_img;
 let cursor_img;
 let glass = false;
-let door_playing = false, b_knock = false, rosie_playing = false, scream = false, stage1_door = false, b_scroll_bgm = false;
+let door_playing = false, b_knock = false, rosie_playing = false, scream = false, stage1_door = false, b_scroll_bgm = false, takekey = false;
 let ms, knock_ms = false;
 let start, current;
-let x = 0, y = 0, blood = 0, opacity = 0;
+let x = 0, y = 0, blood = 0, opacity = 0, drawer_x = 0;
 
 function preload() {
     img_main = loadImage('./data/main.png');
@@ -70,6 +70,12 @@ function preload() {
     waterfill = loadSound('./data/waterfill.mp3');
     waterdrink = loadSound('./data/waterdrink.mp3');
     sink_img = loadImage('./data/sink.png');
+    cabinet_img = loadImage('./data/cabinet.png');
+    key_img = loadImage('./data/cabinet(key).png');
+    eye_img = loadImage('./data/eye.png');
+    eye_b_img = loadImage('./data/eye(b).png');
+    door_img = loadImage('./data/door.png');
+    drawer_img = loadImage('./data/drawer.png');
 }
 
 function setup() {
@@ -124,6 +130,14 @@ function draw() {
     }
     else if (stage == 17) {
         sink();
+    }
+    else if (stage == 18) {
+        cabinet();
+    } else if (stage == 19) {
+        eye();
+    }
+    else if (stage == 20) {
+        drawer();
     }
     if (glass == true) {
         image(cursor_img, mouseX - 20, mouseY - 20, 40, 40);

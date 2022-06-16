@@ -73,6 +73,17 @@ function mouseClicked() {
             stage = 3;
         } else if (mouseX > 1190 && mouseX < 1260) {
             stage = 5;
+        }//cabinet
+        else if (mouseX > 100 && mouseX < 250 && mouseY > 190 && mouseY < 675) {
+            stage = 18;
+        }
+        //painting
+        else if (mouseX > 635 && mouseX < 750 && mouseY > 120 && mouseY < 245) {
+            stage = 19;
+        }
+        //drawer
+        else if (mouseX > 935 && mouseX < 1140 && mouseY > 230 && mouseY < 610) {
+            stage = 20;
         }
     } else if (stage == 5) {
         if (mouseX > 20 && mouseX < 90) {
@@ -92,7 +103,7 @@ function mouseClicked() {
     }
     //deer
     else if (stage == 12) {
-        if (mouseX > 930 && mouseX < 1010 && mouseY > 560 && mouseY < 630 && num == sentence.length) {
+        if (mouseX > 930 && mouseX < 1010 && mouseY > 560 && mouseY < 630 && num1 == sentence1.length) {
             stage = 2;
         }
     }
@@ -122,5 +133,35 @@ function mouseClicked() {
         if (mouseX > 1160 && mouseX < 1240 && mouseY > 600 && mouseY < 680) {
             stage = 3;
         }
+    }
+    else if (stage == 18) {
+        if (mouseX > 1160 && mouseX < 1240 && mouseY > 600 && mouseY < 680) {
+            stage = 4;
+        }
+        else if (mouseX > 745 && mouseX < 910 && mouseY > 360 && mouseY < 550) {
+            takekey = true;
+        }
+    } else if (stage == 19) {
+        if (mouseX > 1160 && mouseX < 1240 && mouseY > 600 && mouseY < 680) {
+            stage = 4;
+        }
+    } else if (stage == 20) {
+        if (mouseX > 1160 && mouseX < 1240 && mouseY > 600 && mouseY < 680) {
+            stage = 4;
+        } else if (drawer_x > 444 && mouseX > 470 && mouseX < 790 && mouseY > 140 && mouseY < 715) {
+            stage = 6;
+        }
+    }
+}
+function keyPressed() {
+
+    if (keyCode == 32 && takekey == true && spacepress == false) {
+        spacepress = true;
+    } else if (keyCode == 32 && spacepress == true) {
+        spacepress = false;
+
+    } else if (stage == 20 && keyCode == LEFT_ARROW && takekey == true) {
+        drawer_x = drawer_x + 12;
+        print(drawer_x);
     }
 }

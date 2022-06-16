@@ -1,5 +1,6 @@
 function stage4() {
     noCursor();
+    glass = false;
     if (b_knock == false) {
         room_bgm.setVolume(0.5);
         if (knock_ms == false) {
@@ -33,10 +34,18 @@ function stage4() {
             let d = dist(x, y, mouseX, mouseY);
 
             //rad 뒤의 값 조절해서 밝기조정
-            let adjustBrightness = map(d, 0, rad, 2, 0);
-            r *= adjustBrightness;
-            g *= adjustBrightness;
-            b *= adjustBrightness;
+            if (spacepress == true) {
+                let adjustBrightness = map(d, 100, rad, 1, 0);
+                r *= adjustBrightness;
+                g *= adjustBrightness;
+                b *= adjustBrightness + 1;
+
+            } else {
+                let adjustBrightness = map(d, 0, rad, 2, 0);
+                r *= adjustBrightness;
+                g *= adjustBrightness;
+                b *= adjustBrightness;
+            }
 
 
             r = constrain(r, 0, 255);
@@ -63,7 +72,7 @@ function stage4() {
         glass = true;
     }
     //drawer
-    else if (mouseX > 935 && mouseX < 1140 && mouseY > 230 && mouseY < 560) {
+    else if (mouseX > 935 && mouseX < 1140 && mouseY > 230 && mouseY < 610) {
         glass = true;
     }
     //cabinet
