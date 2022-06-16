@@ -79,14 +79,14 @@ function stage4() {
     else if (mouseX > 100 && mouseX < 250 && mouseY > 190 && mouseY < 675) {
         glass = true;
     }
-    //doll
-    else if (mouseX > 600 && mouseX < 850 && mouseY > 620 && mouseY < 685) {
-        glass = true;
-    }
-    //knife
-    else if (mouseX > 380 && mouseX < 540 && mouseY > 610 && mouseY < 650) {
-        glass = true;
-    }
+    // //doll
+    // else if (mouseX > 600 && mouseX < 850 && mouseY > 620 && mouseY < 685) {
+    //     glass = true;
+    // }
+    // //knife
+    // else if (mouseX > 380 && mouseX < 540 && mouseY > 610 && mouseY < 650) {
+    //     glass = true;
+    // }
     else {
         glass = false;
     }

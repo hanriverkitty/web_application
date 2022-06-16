@@ -58,9 +58,9 @@ function stage5() {
         glass = true;
     }
     //table
-    else if (mouseX > 510 && mouseX < 890 && mouseY > 415 && mouseY < 485) {
-        glass = true;
-    }
+    // else if (mouseX > 510 && mouseX < 890 && mouseY > 415 && mouseY < 485) {
+    //     glass = true;
+    // }
     else {
         glass = false
     }

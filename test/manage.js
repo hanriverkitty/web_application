@@ -1,5 +1,5 @@
 let img_main, img_stage1, img_stage2, img_stage3, img_stage4, img_stage5, img_stage6, check_img, check_img_b, check_img_r, img_ghost, img_family;
-let stage = 8;
+let stage = 22;
 let emitter, emitter1, emitter2, emitter3, emitter4, emitter5, emitter6;
 let is_emitter1 = false, is_emitter2 = false, is_emitter3 = false, is_emitter4 = false, is_emitter5 = false, is_emitter6 = false;
 let torch_on1 = true, torch_on2 = true, torch_on3 = true, torch_on4 = true, torch_on5 = true, torch_on6 = true;
@@ -13,9 +13,9 @@ let torch1_random, torch2_random, torch3_random, torch4_random, torch5_random, t
 let torch_texture, random_num = [9000, 10000, 11000, 12000, 13000];
 let useMouse = true;
 let left_g, left, right_g, right, left_w, right_w;
-let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm, rosie_bgm, scream_sound_b, locked_sound, scroll_bgm, waterfill, waterdrink;
+let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm, rosie_bgm, scream_sound_b, locked_sound, scroll_bgm, waterfill, waterdrink, children_bgm;
 let img_stage6_1, img_stage6_2, img_stage6_3, img_stage6_4, img_stage6_5, img_stage6_6;
-let deerhead_c, deerhead_c1, table, mirror_img, bath_img, bathwater_img, water, sink_img, cabinet_img, key_img, eye_img, eye_b_img, door_img, drawer_img;
+let deerhead_c, deerhead_c1, table, mirror_img, bath_img, bathwater_img, water, sink_img, cabinet_img, key_img, eye_img, eye_b_img, door_img, drawer_img, children_img, wheelchair_img;
 let cursor_img;
 let glass = false;
 let door_playing = false, b_knock = false, rosie_playing = false, scream = false, stage1_door = false, b_scroll_bgm = false, takekey = false;
@@ -79,6 +79,9 @@ function preload() {
     drawer_img = loadImage('./data/drawer.png');
     scrollfont = loadFont('./data/scrollfont.ttf');
     mainfont = loadFont('./data/mainfont.ttf');
+    children_img = loadImage('./data/children_img.png');
+    children_bgm = loadSound('./data/childrenlaugh.mp3');
+    wheelchair_img = loadImage('./data/wheelchair.png');
 }
 
 function setup() {
@@ -145,6 +148,10 @@ function draw() {
     }
     else if (stage == 20) {
         drawer();
+    } else if (stage == 21) {
+        children();
+    } else if (stage == 22) {
+        wheelchair();
     }
     if (glass == true) {
         image(cursor_img, mouseX - 20, mouseY - 20, 40, 40);

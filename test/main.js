@@ -96,6 +96,10 @@ function mouseClicked() {
             stage = 4;
         } else if (mouseX > 1000 && mouseX < 1220 && mouseY > 130 && mouseY < 580 && locked_sound.isPlaying() == false) {
             locked_sound.play();
+        } else if (mouseX > 530 && mouseX < 655 && mouseY > 50 && mouseY < 210) {
+            stage = 21;
+        } else if (mouseX > 180 && mouseX < 410 && mouseY > 340 && mouseY < 670) {
+            stage = 22;
         }
     } else if (stage == 6) {
         if (mouseX > 20 && mouseX < 90) {
@@ -156,6 +160,18 @@ function mouseClicked() {
             stage = 4;
         } else if (drawer_x > 444 && mouseX > 470 && mouseX < 790 && mouseY > 140 && mouseY < 715) {
             stage = 6;
+        }
+    } else if (stage == 21) {
+        if (mouseX > 1160 && mouseX < 1240 && mouseY > 600 && mouseY < 680) {
+            stage = 5;
+        } else if (mouseX > 440 && mouseX < 815 && mouseY > 180 && mouseY < 600) {
+            if (children_bgm.isPlaying() == false) {
+                children_bgm.play();
+            }
+        }
+    } else if (stage == 22) {
+        if (mouseX > 1160 && mouseX < 1240 && mouseY > 600 && mouseY < 680) {
+            stage = 5;
         }
     }
 }
