@@ -13,9 +13,9 @@ let torch1_random, torch2_random, torch3_random, torch4_random, torch5_random, t
 let torch_texture, random_num = [9000, 10000, 11000, 12000, 13000];
 let useMouse = true;
 let left_g, left, right_g, right, left_w, right_w;
-let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm, rosie_bgm, scream_sound_b, locked_sound, scroll_bgm, waterfill, waterdrink, children_bgm;
+let main_bgm, text_bgm, room_bgm, final_bgm, door_bgm, knock_bgm, rosie_bgm, scream_sound_b, locked_sound, scroll_bgm, waterfill, waterdrink, children_bgm, drawermove;
 let img_stage6_1, img_stage6_2, img_stage6_3, img_stage6_4, img_stage6_5, img_stage6_6;
-let deerhead_c, deerhead_c1, table, mirror_img, bath_img, bathwater_img, water, sink_img, cabinet_img, key_img, eye_img, eye_b_img, door_img, drawer_img, children_img, wheelchair_img;
+let deerhead_c, deerhead_c1, table, mirror_img, bath_img, bathwater_img, water, sink_img, cabinet_img, key_img, eye_img, eye_b_img, door_img, drawer_img, children_img, wheelchair_img, leftkey;
 let cursor_img;
 let glass = false;
 let door_playing = false, b_knock = false, rosie_playing = false, scream = false, stage1_door = false, b_scroll_bgm = false, takekey = false;
@@ -82,6 +82,8 @@ function preload() {
     children_img = loadImage('./data/children_img.png');
     children_bgm = loadSound('./data/childrenlaugh.mp3');
     wheelchair_img = loadImage('./data/wheelchair.png');
+    leftkey = loadImage('./data/leftkey.png');
+    drawermove = loadSound('./data/drawermove.mp3');
 }
 
 function setup() {

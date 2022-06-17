@@ -187,6 +187,14 @@ function keyPressed() {
         spacepress = false;
 
     } else if (stage == 20 && keyCode == LEFT_ARROW && takekey == true) {
+        if (drawermove.isPlaying() == false) {
+            drawermove.play();
+        }
+        else if (drawermove.isPlaying() == true) {
+            drawermove.stop();
+            drawermove.play();
+        }
         drawer_x = drawer_x + 12;
+
     }
 }

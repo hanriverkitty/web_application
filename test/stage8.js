@@ -12,6 +12,10 @@ function stage8() {
     textFont(scrollfont);
     textSize(45);
     text(sentence2.substring(0, num2), 260, 240);
+    if (text_bgm.isPlaying() == false) {
+        text_bgm.setVolume(0.2);
+        text_bgm.play();
+    }
     if (num2 < sentence2.length) {
         num2++;
     }
